@@ -5,6 +5,7 @@ import com.pluralsight.springdealership.repository.DealershipRepository;
 import com.pluralsight.springdealership.repository.VehicleRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +45,26 @@ public class VehicleService {
             return vehicleRepository.save(existing);
         }).orElseThrow(() -> new ResourceNotFoundException("Vehicle Not Found: "+ id));
     }
+    public List<Vehicle> searchVehicles(
+            BigDecimal minPrice,
+            BigDecimal maxPrice,
+            Integer minMiles,
+            Integer maxMiles,
+            Integer minYear,
+            Integer maxYear,
+            String color,
+            String make,
+            String model,
+            String vehicleType){
+        return vehicleRepository.searchVehicles(
+                minPrice, maxPrice, minMiles, maxMiles, minYear, maxYear, color, make, model, vehicleType);
+    }
     public List<Vehicle> getVehiclesByDealershipId(Long id){
         return vehicleRepository.findByDealershipId(id);
     }
+
+
+
+
+
 }

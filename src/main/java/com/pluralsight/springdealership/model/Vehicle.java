@@ -15,7 +15,7 @@ public class Vehicle {
     @JoinColumn(name = "dealership_id")
     private Dealership dealership;
 
-    private int year;
+    private Integer year;
 
     private String make;
 
@@ -25,12 +25,12 @@ public class Vehicle {
 
     private String color;
 
-    private int odometer;
+    private Integer odometer;
 
     private BigDecimal price;
 
     public Vehicle(){}
-    public Vehicle(Long vin, Dealership dealership, int year, String make, String model, String vehicleType, String color, int odometer, BigDecimal price) {
+    public Vehicle(Long vin, Dealership dealership, Integer year, String make, String model, String vehicleType, String color, Integer odometer, BigDecimal price) {
         this.vin = vin;
         this.dealership = dealership;
         this.year = year;
@@ -58,11 +58,11 @@ public class Vehicle {
         return vin;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
@@ -98,11 +98,11 @@ public class Vehicle {
         this.color = color;
     }
 
-    public int getOdometer() {
+    public Integer getOdometer() {
         return odometer;
     }
 
-    public void setOdometer(int odometer) {
+    public void setOdometer(Integer odometer) {
         this.odometer = odometer;
     }
 

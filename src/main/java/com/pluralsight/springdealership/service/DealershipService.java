@@ -37,7 +37,7 @@ public class DealershipService {
         }
         dealershipRepository.deleteById(id);
     }
-    public Dealership findById(Long id){
+    public Dealership getDealershipById(Long id){
         return dealershipRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Dealership Not Found: " + id));
     }
