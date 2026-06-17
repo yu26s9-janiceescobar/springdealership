@@ -1,4 +1,4 @@
-package com.example.springdealership;
+package com.pluralsight.springdealership;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
