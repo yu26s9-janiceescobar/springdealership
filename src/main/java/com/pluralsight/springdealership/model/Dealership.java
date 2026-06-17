@@ -1,18 +1,25 @@
 package com.pluralsight.springdealership.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Dealership {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     private String address;
+
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "dealership")
+    private List<Vehicle> inventory;
+    
     public Dealership(){}
     public Dealership(String name, String address, String phoneNumber){
         this.name = name;

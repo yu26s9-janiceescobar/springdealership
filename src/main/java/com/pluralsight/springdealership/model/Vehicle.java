@@ -1,27 +1,38 @@
 package com.pluralsight.springdealership.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
 
 @Entity
 public class Vehicle {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vin;
+
+    @ManyToOne
+    @JoinColumn(name = "dealership_id")
+    private Dealership dealership;
+
     private int year;
+
     private String make;
+
     private String model;
+
     private String vehicleType;
+
     private String color;
+
     private int odometer;
+
     private BigDecimal price;
+
     public Vehicle(){}
-    public Vehicle(Long vin, int year, String make, String model, String vehicleType, String color, int odometer, BigDecimal price) {
+    public Vehicle(Long vin, Dealership dealership, int year, String make, String model, String vehicleType, String color, int odometer, BigDecimal price) {
         this.vin = vin;
+        this.dealership = dealership;
         this.year = year;
         this.make = make;
         this.model = model;
@@ -29,6 +40,18 @@ public class Vehicle {
         this.color = color;
         this.odometer = odometer;
         this.price = price;
+    }
+
+    public Dealership getDealership() {
+        return dealership;
+    }
+
+    public void setDealership(Dealership dealership) {
+        this.dealership = dealership;
+    }
+
+    public void setVin(Long vin) {
+        this.vin = vin;
     }
 
     public Long getVin() {
